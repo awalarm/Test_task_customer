@@ -9,13 +9,17 @@ class CustomersController < ApplicationController
   end
 
   def new
+    @customer = Customer.new
   end
 
   def create
     @customer = Customer.new(customer_params)
 
-    @customer.save
-    redirect_to @customer
+    if @customer.save
+     redirect_to @customer
+    else
+      render 'new'
+    end
   end
 
   private
