@@ -1,0 +1,19 @@
+<h1>Список клиентов</h1>
+
+<table>
+  <tr>
+    <th>Имя</th>
+    <th>Телефон</th>
+    <th>Описание</th> 
+    <th></th>
+  </tr>
+
+  <% @customers.each do |customer| %>
+    <tr>
+      <td><%= customer.name %></td>
+      <td><%= customer.phone %></td>
+      <td><%= customer.text %></td>
+      <td><%= link_to 'Show', customer_path(customer) %></td>
+    </tr>
+  <% end %>
+</table>
