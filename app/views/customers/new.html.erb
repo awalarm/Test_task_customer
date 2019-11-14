@@ -1,22 +1,27 @@
 <h1>Новый клиент</h1>
 
-<%= form_with scope: :customer, url: customers_path, local: true do |form| %>
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
+<div class="row">
+	<div class="col-md-4"></div>
+<div class="row">
+	<div class="col-md-4">
+	<%= form_with scope: :customer, url: customers_path, local: true do |form| %>
+	  <div class="form-group form-inline">
+	    <%= form.label 'Имя клиента' %>
+	    <%= form.text_field :name, autofocus: true, class: "form-control" %>
 
-   <p>
-    <%= form.label :phone %><br>
-    <%= form.text_field :phone %>
-  </p>
+	    <%= form.label 'Телефон' %>
+	    <%= form.text_field :phone, autofocus: true, class: "form-control"  %>
+	   </div>
 
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
+	  <div class="form-group form-inline">
+	    <%= form.label 'О клиенте' %><br>
+	    <%= form.text_area :text, autofocus: true, class: "form-control", style: "height: 90px; width: 570px" %>
+	  </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+	  <p>
+	    <%= form.submit %>
+	  </p>
+	<% end %>
+</div>
+</div>
+</div>
