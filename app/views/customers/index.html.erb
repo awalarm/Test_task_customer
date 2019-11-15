@@ -12,14 +12,46 @@
   </thead>
   <tbody>
         <% @customers.each do |customer| %>
+        <% if customer.black_list == false %>
     <tr>
       <th scope="row"><%= customer.id %></tth>
       <td><%= customer.name %></td>
       <td><%= customer.phone %></td>
       <td><%= customer.text %></td>
-      <td><%= link_to 'Show', customer_path(customer) %></td>
+      <td><%= link_to 'Show', customer_path(customer) %>
+        <%= link_to 'Edit', edit_customer_path(customer) %>
+      </td>
     </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>
 
+<h2>Черный список клиентов</h2>
+
+<table class="table table-bordered table-striped" style="width: 90%; margin: auto;">
+  <thead style="text-align: center">
+    <tr>
+      <th>#</th>
+      <th>Имя</th>
+      <th>Телефон</th>
+      <th>Описание</th>
+      <th>Подробнее</th>
+    </tr>
+  </thead>
+  <tbody>
+        <% @customers.each do |customer| %>
+        <% if customer.black_list == true %>
+    <tr>
+      <th scope="row"><%= customer.id %></tth>
+      <td><%= customer.name %></td>
+      <td><%= customer.phone %></td>
+      <td><%= customer.text %></td>
+      <td><%= link_to 'Show', customer_path(customer) %>
+        <%= link_to 'Edit', edit_customer_path(customer) %>
+      </td>
+    </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
