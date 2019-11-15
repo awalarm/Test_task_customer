@@ -1,0 +1,44 @@
+<h1>Редактирование карточки клиента</h1>
+
+<div class="row">
+	<div class="col-xs-4"></div>
+<div class="row">
+	<div class="col-xs-4">
+	<%= form_with model: @customer, local: true do |form| %>
+	  	
+	  	<% if @customer.errors.any? %>
+		    <div id="error_explanation">
+		      <h2>
+		        <%= pluralize(@customer.errors.count, "error") %> заполните все поля
+		      </h2>
+		      <ul>
+		        <% @customer.errors.full_messages.each do |msg| %>
+		          <li><%= msg %></li>
+		        <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+
+	  <div class="form-group form-inline">
+	  	<%= form.label 'Имя клиента' %>
+	    <%= form.text_field :name, autofocus: true, class: "form-control" %>
+
+	    <%= form.label 'Телефон' %>
+	    <%= form.text_field :phone, autofocus: true, class: "form-control"  %>
+	   </div>
+
+	  <div class="form-group form-inline">
+	    <%= form.label 'О клиенте' %><br>
+	    <%= form.text_area :text, autofocus: true, class: "form-control", style: "height: 90px; width: 570px" %>
+	  </div>
+
+	<!-- 	<%= form.text_area :black_list %> -->
+	  <p>
+	    <%= form.submit 'Сохранить'%>
+	    <%= form.submit :name => :black_list, :value => true %>
+	  </p>
+	<% end %>
+</div>
+</div>
+</div>
+
