@@ -31,8 +31,21 @@
 	    <%= form.label 'О клиенте' %><br>
 	    <%= form.text_area :text, autofocus: true, class: "form-control", style: "height: 90px; width: 570px" %>
 	  </div>
+		
+		<p>
+	<table> <h4>Добавить в черный список?</h4>
+        <tr>
+            <td><%= form.label 'a_flag_true', 'Yes' %></td>
+            <td><%= form.radio_button :black_list, true %></td>
+        </tr>
 
-	<!-- 	<%= form.text_area :black_list %> -->
+        <tr>
+            <td><%= form.label 'a_flag_false', 'No' %></td>
+            <td><%= form.radio_button :black_list, false %></td>
+        </tr>
+    </table>
+		</p>
+	  	
 	  <p>
 	    <%= form.submit 'Сохранить'%>
 	  </p>
