@@ -1,20 +1,14 @@
-<p>
-  <strong>Name:</strong>
-  <%= @customer.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Клиент:</dt>
+  <dd><%= @customer.name %></dd> 
 
-<p>
-  <strong>Phone:</strong>
-  <%= @customer.phone %>
-</p>
+  <dt>Телефон:</dt>
+  <dd><%= @customer.phone %></dd>
 
-<p>
-  <strong>Text:</strong>
-  <%= @customer.text %>
-</p>
+  <dt>Описание:</dt>
+  <dd><%= @customer.text %></dd>
 
-<p>
-  <strong>BlackList:</strong>
-  <%= @customer.black_list %>
-</p>
+  <dt>В черном списке:</dt>
+  <dd><%= @customer.black_list %></dd>
 
+</dl>
