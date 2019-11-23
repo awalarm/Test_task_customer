@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
 
   def index
-    @customers = Customer.all
+    @customers = Customer.search(params[:search], params[:id])
   end
   
   def show
