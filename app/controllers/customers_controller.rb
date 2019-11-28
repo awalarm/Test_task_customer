@@ -8,6 +8,10 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 
+  def blacklist
+    @customers = Customer.search(params[:search], params[:id])    
+  end
+
   def new
     @customer = Customer.new
   end
@@ -29,7 +33,11 @@ class CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
-      redirect_to @customer
+      if @customer.black_list == false
+        redirect_to :action => 'blacklist'
+      else
+        redirect_to :action => 'index'
+      end
     else
       render 'edit'
     end

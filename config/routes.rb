@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'welcome/index'
+  get 'customers/blacklist'
+  get 'customers/blacklistdell'
+
 
   resources :customers
 

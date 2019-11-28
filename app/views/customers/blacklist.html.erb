@@ -1,4 +1,4 @@
-<h1>Список клиентов</h1>
+<h2>Черный список клиентов</h2>
 
 <table class="table table-bordered table-striped" style="width: 90%; margin: auto;">
   <thead style="text-align: center">
@@ -12,7 +12,7 @@
   </thead>
   <tbody>
         <% @customers.each do |customer| %>
-        <% if customer.black_list == false %>
+        <% if customer.black_list == true %>
     <tr>
       <th scope="row"><%= customer.id %></tth>
       <td><%= customer.name %></td>
@@ -20,17 +20,14 @@
       <td><%= customer.text %></td>
       <td><%= link_to 'Show', customer_path(customer) %> |
         <%= link_to 'Edit', edit_customer_path(customer) %> |
-        <%= link_to 'ADD BL', customer_path(customer, :customer => {:black_list => 'true'}), method: :put  %>
+        <%= link_to 'delet BL', customer_path(customer, :customer => {:black_list => 'false'}), method: :put  %>
+
       </td>
     </tr>
+
     <% end %>
     <% end %>
+    
+  
   </tbody>
 </table>
-
-<br>
-
-<% @customers.reverse_each do |customer| %>
-   Вы добавили  <%= customer.name %> с телефоном
-    <%= customer.phone %> в <%= customer.created_at.strftime("%d-%m-%Y") %> <br>
-<% end %>
