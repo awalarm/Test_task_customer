@@ -9,8 +9,20 @@ class CustomersController < ApplicationController
   end
 
   def blacklist
-    @customers = Customer.search(params[:search], params[:id])    
+    @customers = Customer.search(params[:search], params[:id])
   end
+
+  def blacklistphone
+    @customer = Customer.find_by(phone: params[:customer][:phone])
+    if @customer != nil
+      if @customer.update(customer_params)
+           redirect_to :action => 'blacklist'
+       end
+     else
+      redirect_to :action => 'index'
+     end
+  end
+
 
   def new
     @customer = Customer.new

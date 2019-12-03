@@ -32,5 +32,5 @@
 
 <% @customers.reverse_each do |customer| %>
    Вы добавили  <%= customer.name %> с телефоном
-    <%= customer.phone %> в <%= customer.created_at.strftime("%d-%m-%Y") %> <br>
+    <%= customer.phone %>  <%= time_ago_in_words customer.created_at %> назад. <br>
 <% end %>

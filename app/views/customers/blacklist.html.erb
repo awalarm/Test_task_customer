@@ -11,23 +11,30 @@
     </tr>
   </thead>
   <tbody>
-        <% @customers.each do |customer| %>
-        <% if customer.black_list == true %>
-    <tr>
-      <th scope="row"><%= customer.id %></tth>
-      <td><%= customer.name %></td>
-      <td><%= customer.phone %></td>
-      <td><%= customer.text %></td>
-      <td><%= link_to 'Show', customer_path(customer) %> |
-        <%= link_to 'Edit', edit_customer_path(customer) %> |
-        <%= link_to 'delet BL', customer_path(customer, :customer => {:black_list => 'false'}), method: :put  %>
-
-      </td>
-    </tr>
-
-    <% end %>
+    <% @customers.each do |customer| %>
+      <% if customer.black_list == true %>
+        <tr>
+          <th scope="row"><%= customer.id %></tth>
+          <td><%= customer.name %></td>
+          <td><%= customer.phone %></td>
+          <td><%= customer.text %></td>
+          <td><%= link_to 'Show', customer_path(customer) %> |
+            <%= link_to 'Edit', edit_customer_path(customer) %> |
+            <%= link_to 'delet BL', customer_path(customer, :customer => {:black_list => 'false'}), method: :put  %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
     
-  
   </tbody>
 </table>
+
+<h2>Добавить в черный список</h2>
+
+  <%= form_for :customer , url: {action: "blacklistphone"}, local: true, method: "put" do |form| %>  
+    <%= form.label 'Телефон' %>
+    <%= form.text_field :phone,  autofocus: true %>
+    <%= form.radio_button :black_list, true, :checked => true, :style=>"display:none;" %>
+    <%= form.submit 'Сохранить', :name => nil %>
+
+  <% end %>

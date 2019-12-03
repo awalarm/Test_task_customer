@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   get 'customers/blacklist'
-  get 'customers/blacklistdell'
 
+  put 'customers/blacklistphone'
 
   resources :customers
 
