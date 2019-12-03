@@ -1,5 +1,4 @@
 class CustomersController < ApplicationController
-  before_action :authenticate_user!
 
   def index
     @customers = Customer.search(params[:search], params[:id])
