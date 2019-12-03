@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'customers/blacklist'
-
   put 'customers/blacklistphone'
 
   resources :customers
