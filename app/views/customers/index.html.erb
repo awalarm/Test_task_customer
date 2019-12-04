@@ -18,9 +18,11 @@
       <td><%= customer.name %></td>
       <td><%= customer.phone %></td>
       <td><%= customer.text %></td>
-      <td><%= link_to 'Show', customer_path(customer) %> |
+      <td><%= link_to 'Show', customer_path(customer) %> 
+        <% if user_signed_in? %> |
         <%= link_to 'Edit', edit_customer_path(customer) %> |
         <%= link_to 'ADD BL', customer_path(customer, :customer => {:black_list => 'true'}), method: :put  %>
+        <% end %>
       </td>
     </tr>
     <% end %>
