@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   root to: "customers#index"
 
+  namespace :admin do
+
+  end
+
 
   # root 'customers#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
